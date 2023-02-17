@@ -15,13 +15,13 @@ apt install python3 python3-pip git ffmpeg wget gnupg -y || exit 2
 su -c "python3 -m pip install -U pip" $SUDO_USER
 su -c "python3 -m pip install -U wheel pillow" $SUDO_USER
 
-if [[ -d "Kyran" ]]; then
-  cd Kyran
+if [[ -d "kos" ]]; then
+  cd kos
 elif [[ -f ".env.dist" ]] && [[ -f "main.py" ]] && [[ -d "modules" ]]; then
   :
 else
   git clone https://github.com/Onlymeriz/kos || exit 2
-  cd Kyran || exit 2
+  cd kos || exit 2
 fi
 
 if [[ -f ".env" ]] && [[ -f "my_account.session" ]]; then
@@ -29,7 +29,7 @@ if [[ -f ".env" ]] && [[ -f "my_account.session" ]]; then
   exit
 fi
 
-su -c "python3 -m pip install -U -r https://raw.githubusercontent.com/Onlymeriz/kos/Kyran/requirements.txt" $SUDO_USER || exit 2
+su -c "python3 -m pip install -U -r requirements.txt" $SUDO_USER || exit 2
 
 echo
 echo "Enter API_ID and API_HASH"
