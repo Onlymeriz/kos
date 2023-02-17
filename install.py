@@ -49,7 +49,7 @@ if __name__ == "__main__":
     elif install_type == "2":
         restart = "sudo systemctl restart kyran"
     else:
-        restart = "cd Kyran-Pyro/ && python main.py"
+        restart = "cd master/ && python main.py"
 
     app.start()
     try:
